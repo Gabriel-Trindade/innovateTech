@@ -1,35 +1,29 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# Ignorar arquivos de build gerados
 node_modules/
+*.log
+yarn.lock
+npm-debug.log*
+yarn-error.log*
+/build/
 
-# Expo
-.expo/
-dist/
-web-build/
+# Ignorar arquivos de configuração locais
+.env
+.env.local
+.env.*.local
 
-# Native
-*.orig.*
+# Ignorar arquivos gerados automaticamente
+*.expo*
 *.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
-.DS_Store
+*.keystore
 *.pem
 
-# local env files
-.env*.local
+# Ignorar arquivos de dependências de desenvolvimento
+**/__tests__/
+**/__mocks__/
+**/*.spec.js
+**/coverage/
+**/e2e/
 
-# typescript
-*.tsbuildinfo
+# Ignorar arquivos específicos
+.DS_Store
+*.temp
