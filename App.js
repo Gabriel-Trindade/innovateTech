@@ -81,7 +81,7 @@ export default function App() {
 
     try {
       const response = await fetchApi(
-        `?page=${page + 1}&results=${resultsPerPage}${
+        `?page=${page + 1}&results=${resultsPerPage}&seed=abc${
           filter ? `&gender=${filter}` : ""
         }`
       );

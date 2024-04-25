@@ -27,6 +27,11 @@ Além do desafio proposto com as duas telas, temos alguns diferenciais:
 - **Diferencial 1:** Adicionar um filtro por Gênero na tabela;
 - **Diferencial 2:** Após o primeiro load dos dados guardar as informações em um cache interno do celular, se o app for aberto novamente puxar os dados do cache e não da API.
 
+## Desenvolvimento do projeto
+
+Primeiramente, defini como splash o ícone fornecido como o logo da empresa. Logo após, comecei a personalizar a tela principal que seria a App.js, após a finalização do cabeçalho do aplicativo, trabalhei para definir as "boxes" dos usuários e o display dos dados. Depois, defini a base de chamada da api e comecei a trabalhar no desenvolvimento e a chamada básica da mesma.
+Tudo funcionando, fiz os modais dos usuários e sempre tentando melhorar o máximo do design. Fiz logo após, o modal de filtro por gênero, onde tive que adaptar toda a chamada da api para receber a variavel filter. O próximo passo foi colocar a barra de pesquisa por nome do aluno para funcionar, onde reaproveitei alguns useStates e fiz as funções para recebimento do nome.
+
 ## Notas
 
 Todos os requisitos básicos do projeto foram construídos, tentei fazer de modo mais simples porém detalhada para bom entendimento do código, que inclusive, está comentado com todas as funções e os tipos de dados que as funções recebem.
