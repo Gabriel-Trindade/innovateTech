@@ -22,10 +22,10 @@ A InnovateTech, uma empresa líder em tecnologia educacional, está empenhada em
 
 ## Extras
 
-Além do desafio proposto com as duas telas, temos alguns diferenciais:
+Além do desafio proposto com as duas telas, temos dois diferenciais:
 
-- **Diferencial 1:** Adicionar um filtro por Gênero na tabela;
-- **Diferencial 2:** Após o primeiro load dos dados guardar as informações em um cache interno do celular, se o app for aberto novamente puxar os dados do cache e não da API.
+- **Diferencial 1:** Adicionei um filtro por Gênero na tabela; ✔
+- **Diferencial 2:** Após o primeiro load dos dados guardar as informações em um cache interno do celular, se o app for aberto novamente puxar os dados do cache e não da API. ✔
 
 ## Desenvolvimento do projeto
 
