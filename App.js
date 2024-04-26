@@ -81,7 +81,7 @@ export default function App() {
 
     try {
       const response = await fetchApi(
-        `?page=${page + 1}&results=${resultsPerPage}&seed=abc${
+        `?page=${page + 1}&results=${resultsPerPage}${
           filter ? `&gender=${filter}` : ""
         }`
       );
@@ -102,7 +102,7 @@ export default function App() {
       if (!cachedData) {
         try {
           const response = await fetchApi(
-            `?page=1&results=${resultsPerPage}&seed=abc${
+            `?page=1&results=${resultsPerPage}${
               filter ? `&gender=${filter}` : ""
             }`
           );
