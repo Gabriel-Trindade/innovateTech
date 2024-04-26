@@ -31,6 +31,7 @@ Além do desafio proposto com as duas telas, temos alguns diferenciais:
 
 Primeiramente, defini como splash o ícone fornecido como o logo da empresa. Logo após, comecei a personalizar a tela principal que seria a App.js, após a finalização do cabeçalho do aplicativo, trabalhei para definir as "boxes" dos usuários e o display dos dados. Depois, defini a base de chamada da api e comecei a trabalhar no desenvolvimento e a chamada básica da mesma.
 Tudo funcionando, fiz os modais dos usuários e sempre tentando melhorar o máximo do design. Fiz logo após, o modal de filtro por gênero, onde tive que adaptar toda a chamada da api para receber a variavel filter. O próximo passo foi colocar a barra de pesquisa por nome do aluno para funcionar, onde reaproveitei alguns useStates e fiz as funções para recebimento do nome.
+O passo final foi o ajuste do cache do usuário, que apesar de existir, ele não estava chamando, apenas mudei a condição de chamada da API para caso a variável de cache salvo não existir e a funcionalidade pegou.
 
 ## Notas
 
