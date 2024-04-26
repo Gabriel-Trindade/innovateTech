@@ -13,7 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import fetchApi from "./api/Api.js";
 import UserModal from "./components/UserModal.js";
 import FilterModal from "./components/FilterModal.js";
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 /**
  * Componente principal da aplicação.
@@ -98,15 +98,23 @@ export default function App() {
    */
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetchApi(
-          `?page=1&results=${resultsPerPage}&seed=abc${filter ? `&gender=${filter}` : ""}`
-        );
-        setUsers(response.results);
-        setLoadingMore(false);
-        saveToCache(response.results);
-      } catch (error) {
-        console.error("Erro ao buscar usuários:", error);
+      const cachedData = await AsyncStorage.getItem("cachedUsers");
+      if (!cachedData) {
+        try {
+          const response = await fetchApi(
+            `?page=1&results=${resultsPerPage}&seed=abc${
+              filter ? `&gender=${filter}` : ""
+            }`
+          );
+          setUsers(response.results);
+          setLoadingMore(false);
+          saveToCache(response.results);
+        } catch (error) {
+          console.error("Erro ao buscar usuários:", error);
+          setLoadingMore(false);
+        }
+      } else {
+        setUsers(JSON.parse(cachedData));
         setLoadingMore(false);
       }
     };
@@ -147,12 +155,16 @@ export default function App() {
         user.name.first.toLowerCase().includes(text.toLowerCase()) ||
         user.name.last.toLowerCase().includes(text.toLowerCase()) ||
         (text.includes(" ") &&
-          user.name.first.toLowerCase().includes(text.split(" ")[0].toLowerCase()) &&
-          user.name.last.toLowerCase().includes(text.split(" ")[1].toLowerCase()))
+          user.name.first
+            .toLowerCase()
+            .includes(text.split(" ")[0].toLowerCase()) &&
+          user.name.last
+            .toLowerCase()
+            .includes(text.split(" ")[1].toLowerCase()))
     );
     setFilteredUsers(filterPerText);
     setLoadingMore(false);
-  
+
     if (!text) {
       setSearchActive(false);
       setFilteredUsers(users);
@@ -163,6 +175,7 @@ export default function App() {
     <View style={styles.container}>
       {/* Cabeçalho */}
       <View style={styles.header}>
+        <Image style={styles.userPhoto} source={require('./assets/splash.jpeg')} />
         <Text style={styles.title}>Innovate Tech</Text>
         {/* Barra de pesquisa e filtro */}
         <View style={styles.searchContainer}>
@@ -297,14 +310,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   loadingMoreContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 10,
   },
   loadingMoreText: {
     marginLeft: 10,
     fontSize: 16,
-    color: '#007bff',
+    color: "#007bff",
   },
 });
